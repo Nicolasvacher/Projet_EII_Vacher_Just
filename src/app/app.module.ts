@@ -14,6 +14,10 @@ import { OptionsPage } from '../pages/options/options';
 import { FavorisPage } from '../pages/favoris/favoris';
 import { ParisPage } from '../pages/paris/paris';
 
+import { SignupPage } from '../pages/signup/signup';
+import { LoginPage } from '../pages/login/login';
+import { WelcomePage } from '../pages/welcome/welcome';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -23,7 +27,10 @@ import { ParisPage } from '../pages/paris/paris';
     TabsPage,
     OptionsPage,
     FavorisPage,
-    ParisPage
+    ParisPage,
+    SignupPage,
+    LoginPage,
+    WelcomePage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,10 @@ import { ParisPage } from '../pages/paris/paris';
     TabsPage,
     OptionsPage,
     FavorisPage,
-    ParisPage
+    ParisPage,
+    SignupPage,
+    LoginPage,
+    WelcomePage
   ],
   providers: [
     StatusBar,

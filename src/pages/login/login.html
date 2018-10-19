@@ -7,12 +7,41 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>login</ion-title>
+    <ion-title>Connexion</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<div class="loginForm">
+  <form>
+    <ion-list>
 
-</ion-content>
+      <ion-item>
+        <ion-label fixed>{{ 'EMAIL' }}</ion-label>
+        <ion-input type="email" name="email"></ion-input>
+      </ion-item>
+
+      <!--
+      Want to use a Username instead of an Email? Here you go:
+
+      <ion-item>
+        <ion-label floating>{{ 'USERNAME' }}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
+      </ion-item>
+      -->
+
+      <ion-item>
+        <ion-label fixed>{{ 'PASSWORD' }}</ion-label>
+        <ion-input type="password" name="password"></ion-input>
+      </ion-item>
+
+      <div padding>
+
+        <button ion-button full color="success" (click)="connect()">Connect</button>
+        <!--<button ion-button color="primary" block>{{ 'LOGIN_BUTTON' }}</button>-->
+      </div>
+
+    </ion-list>
+  </form>
+</div>
