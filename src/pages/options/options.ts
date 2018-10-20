@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { WelcomePage } from '../welcome/welcome';
 /**
  * Generated class for the OptionsPage page.
  *
@@ -15,11 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OptionsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OptionsPage');
+  changeInformation() {
+    this.navCtrl.push(WelcomePage);
+  }
+
+  report() {
+    this.navCtrl.push(WelcomePage);
+  }
+
+  confidentiality() {
+    this.navCtrl.push(WelcomePage);
+  }
+
+  disconnect() {
+    this.navCtrl.push(WelcomePage);
   }
 
 }

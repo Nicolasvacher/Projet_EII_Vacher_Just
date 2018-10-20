@@ -20,7 +20,11 @@
   background: color($colors, darkThemeBackground);
 }
 
-//h1, h2, h3, h4, h5, p {
-//  color: color($colors, darkThemeTextLight);
-//}
+h1, h2, h3, h4, h5, p {
+  color: color($colors, darkThemeTextLight);
+}
+
+::-webkit-scrollbar, *::-webkit-scrollbar {
+  display: none;
+}
 

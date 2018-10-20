@@ -20,10 +20,10 @@
       Main
     </ion-list-header>
 
-    <ion-item color="darkThemeBackground">
-      <ion-icon name='person' item-start></ion-icon>
+    <button ion-item color="darkThemeBackground" (click)="changeInformation()" icon-start>
+      <ion-icon name="person" item-start></ion-icon>
       Mes informations
-    </ion-item>
+    </button>
 
     <ion-item color="darkThemeBackground">
       <ion-toggle checked="false"></ion-toggle>
@@ -42,16 +42,15 @@
       Support
     </ion-list-header>
 
-    <ion-item color="darkThemeBackground">
-      <ion-icon name='bug' item-start></ion-icon>
+    <button ion-item color="darkThemeBackground" (click)="report()" icon-start>
+      <ion-icon name="bug" item-start></ion-icon>
       Signaler un problème
-    </ion-item>
+    </button>
 
-    <ion-item color="darkThemeBackground">
-      <ion-icon name='list' item-start></ion-icon>
+    <button ion-item color="darkThemeBackground" (click)="confidentiality()" icon-start>
+      <ion-icon name="list" item-start></ion-icon>
       Confidentialité
-      <ion-note item-end></ion-note>
-    </ion-item>
+    </button>
 
 
   </ion-list>
@@ -61,10 +60,10 @@
       Déconnexion
     </ion-list-header>
 
-    <ion-item color="darkThemeBackground">
-      <ion-icon name='log-out' item-start color="danger"></ion-icon>
+    <button ion-item color="darkThemeBackground" (click)="disconnect()" icon-start>
+      <ion-icon name="log-out" color="danger" item-start></ion-icon>
       Se déconnecter
-    </ion-item>
+    </button>
 
 
   </ion-list>
