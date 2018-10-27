@@ -1,14 +1,16 @@
 <ion-header>
+
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Games</ion-title>
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
+  <!--Liste des jeux-->
   <ion-list inset>
-    <ion-item *ngFor="let user of users">
-      <h2>{{user.name}}</h2>
-      <p>{{user.email}}</p>
+    <ion-item *ngFor="let game of games">
+      <h2>{{game.title}}</h2>
     </ion-item>
   </ion-list>
 </ion-content>

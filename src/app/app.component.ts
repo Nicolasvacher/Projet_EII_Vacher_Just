@@ -10,7 +10,6 @@ import { WelcomePage } from '../pages/welcome/welcome';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  //rootPage: any = TabsPage;
   rootPage: any = WelcomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
