@@ -20,6 +20,7 @@ import { GameListPage } from '../pages/game-list/game-list';
 import { GameService } from '../providers/api/game.service';
 import { UserService } from '../providers/api/user.service';
 import { UserListPage } from '../pages/user/user-list';
+import { OptionsChangeInfoPage } from '../pages/options-change-info/options-change-info'
 
 @NgModule({
   declarations: [
@@ -33,8 +34,9 @@ import { UserListPage } from '../pages/user/user-list';
     GameListPage,
     SignupPage,
     LoginPage,
-    WelcomePage
-  ],
+    WelcomePage,
+    OptionsChangeInfoPage
+  ], 
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -52,7 +54,8 @@ import { UserListPage } from '../pages/user/user-list';
     GameListPage,
     SignupPage,
     LoginPage,
-    WelcomePage
+    WelcomePage,
+    OptionsChangeInfoPage
   ],
   providers: [
     StatusBar,
