@@ -24,7 +24,7 @@ export class WelcomePage {
   }
 
   ionViewWillEnter() {
-    
+      
   }
 
 }
