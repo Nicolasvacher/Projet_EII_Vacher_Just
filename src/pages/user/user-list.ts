@@ -27,11 +27,5 @@ export class UserListPage {
       });
   }
 
-  connect(email, motDePasse){
-    let httpParams = new HttpParams();
-    httpParams = httpParams.append('email',email);
-    httpParams = httpParams.append('motDePasse',motDePasse);
 
-    return this.api.post('utilisateur/connexion')
-  }
 }
