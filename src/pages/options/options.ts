@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, App } from 'ionic-angular';
 
 import { WelcomePage } from '../welcome/welcome';
+import { OptionsChangeInfoPage } from '../options-change-info/options-change-info'
 /**
  * Generated class for the OptionsPage page.
  *
@@ -16,11 +17,11 @@ import { WelcomePage } from '../welcome/welcome';
 })
 export class OptionsPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public app: App) {
   }
 
   changeInformation() {
-    this.navCtrl.push(WelcomePage);
+    this.navCtrl.push(OptionsChangeInfoPage);
   }
 
   report() {
@@ -32,7 +33,7 @@ export class OptionsPage {
   }
 
   disconnect() {
-    this.navCtrl.push(WelcomePage);
+    this.app.getRootNav().setRoot(WelcomePage);
   }
 
 }
