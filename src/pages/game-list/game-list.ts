@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { GameService } from '../../providers/api/game.service';
 import { Game } from './shared/game';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpClient, HttpHeaders } from '@angular/common/http';
+import { RequestOptions } from '@angular/http';
 
 @IonicPage()
 @Component({
@@ -20,7 +21,8 @@ export class GameListPage {
    * @param {GameService} gameService
    */
   constructor(public navCtrl: NavController,
-              public gameService: GameService) {
+    public gameService: GameService,
+    private http: HttpClient) {
     // Quand la page se lance, on déclenche la récupération des jeux
     this.getGames();
   }
@@ -41,6 +43,35 @@ export class GameListPage {
       });
   }
 
+  sendPostRequest() {
+    
+    //let body = new FormData();
+    //body.append("Limite", "0");
+
+
+    let body = {
+      "Entree": {
+        Limite: 0
+      }
+    }
+
+    /*
+    let myheaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    */
+
+    this.http
+      .post('http://localhost:49296/api/Game/Liste', body /*, { headers: myheaders }*/)
+      .subscribe(
+      data => {
+        console.log(data);
+      },
+      err => {
+        console.log("ERROR!: ", err);
+      }
+      );
+  }
 
   /**
    * Pemettra d'aller sur la page de détail du jeu
