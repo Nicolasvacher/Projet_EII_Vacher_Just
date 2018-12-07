@@ -7,10 +7,16 @@
 </ion-header>
 
 <ion-content padding>
-  <!--Liste des jeux-->
-  <ion-list inset>
-    <ion-item *ngFor="let game of games">
-      <h2>{{game.Titre}}</h2>
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let game of games">
+        <!--Liste des jeux-->
+        <div class="gameBackground">
+          <img [src]="game.CheminImage">
+          <p text-center>{{game.Titre}}</p>
+        </div>
+      </ion-col>
+        
+    </ion-row>
+  </ion-grid>
 </ion-content>
