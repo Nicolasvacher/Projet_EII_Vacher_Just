@@ -1,5 +1,13 @@
 export interface Game {
-  id: number;
-  title: string;
-  userId: string;
+  Id: number;
+  Titre: string;
+  CheminImage: string;
+  GameTypeCode: string;
+}
+
+export interface ApiResponse {
+  Complement: string;
+  Sortie: {
+    List: Game[]
+  }
 }

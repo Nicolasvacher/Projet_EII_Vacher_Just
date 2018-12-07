@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Game } from '../../pages/game-list/shared/game';
+import { Game, ApiResponse } from '../../pages/game-list/shared/game';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class GameService {
@@ -54,7 +55,18 @@ export class GameService {
    * @returns {Observable<Game[]>}
    */
   getGames(): Observable<Game[]> {
-    return this.http.get<Game[]>(`${this.apiUrl}/posts`);
+
+    const body = {
+      "Entree": {
+        Limite: 0
+      }
+    }
+
+    return this.http.post<ApiResponse>('http://localhost:49296/api/Game/Liste', body)
+      .pipe(
+      map((r: ApiResponse) => {
+        return r.Sortie.List;
+      }));
   }
 
   /**
