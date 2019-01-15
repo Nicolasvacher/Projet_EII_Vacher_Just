@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from '../../pages/user/shared/user';
+import { map } from 'rxjs/operators';
+import { ApiResponseLogin } from '../../pages/login/shared/user';
 
 @Injectable()
 export class UserService {
@@ -10,8 +10,6 @@ export class UserService {
    * Url de l'api des utilisateurs
    * @type {string}
    */
-  apiUrl = 'https://jsonplaceholder.typicode.com';
-
   constructor(public http: HttpClient) {
   }
 
@@ -19,8 +17,24 @@ export class UserService {
    * Tous les utilisateurs
    * @returns {Observable<User[]>}
    */
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/users`);
+  makeLogin(pseudo, password){
+
+    const body = {
+      'Password': "123456789",
+      'Pseudo' : "Soows"
+    }
+
+    return this.http.post<ApiResponseLogin>('http://localhost:49296/api/UserAction/LoginApi', body) //{ headers: { 'Content-Type': 'application/json' }}
+      .pipe(
+      map((res: ApiResponseLogin) => {
+        console.log(res.Messages);
+        if (res.Messages && res.Messages[0] && res.Messages[0].Code != "SUCCESS") {
+          throw Error("Invalid password");
+        }
+
+        return res;
+      }));
+
   }
 }
 

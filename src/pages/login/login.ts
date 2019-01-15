@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
 import { TabsPage } from '../tabs/tabs';
+
+import { UserService } from '../../providers/api/user.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 /**
  * Generated class for the LoginPage page.
@@ -17,11 +20,25 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController) {
+  user = {
+    pseudo: "",
+    password: ""
+  };
+
+  constructor(public navCtrl: NavController,
+    public userService: UserService) {
   }
 
   connect() {
-    this.navCtrl.push(TabsPage);
+    this.userService.makeLogin(this.user.pseudo, this.user.password)
+      .subscribe(data => {
+      console.log('Connexion reussi');
+      console.log(data);
+      //this.navCtrl.push(TabsPage);
+      }, (err: HttpErrorResponse) => {
+        // Quand l'api répond mal
+        console.error(err);
+      });
   }
 
 }

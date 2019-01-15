@@ -19,7 +19,6 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { GameListPage } from '../pages/game-list/game-list';
 import { GameService } from '../providers/api/game.service';
 import { UserService } from '../providers/api/user.service';
-import { UserListPage } from '../pages/user/user-list';
 import { OptionsChangeInfoPage } from '../pages/options-change-info/options-change-info'
 
 @NgModule({
@@ -30,7 +29,6 @@ import { OptionsChangeInfoPage } from '../pages/options-change-info/options-chan
     TabsPage,
     OptionsPage,
     FavorisPage,
-    UserListPage,
     GameListPage,
     SignupPage,
     LoginPage,
@@ -50,7 +48,6 @@ import { OptionsChangeInfoPage } from '../pages/options-change-info/options-chan
     TabsPage,
     OptionsPage,
     FavorisPage,
-    UserListPage,
     GameListPage,
     SignupPage,
     LoginPage,
