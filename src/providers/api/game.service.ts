@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Game, ApiResponse } from '../../pages/game-list/shared/game';
+import { Game, ApiResponse } from '../../pages/favoris/shared/favoris';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -23,7 +23,8 @@ export class GameService {
 
     const body = {
       "Entree": {
-        Limite: 0
+        Limite: 0,
+        Admin: true
       }
     }
 

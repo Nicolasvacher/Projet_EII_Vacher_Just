@@ -1,45 +1,22 @@
-<!--
-  Generated template for the FavorisPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>favoris</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only color="royal">
-        <ion-icon name="checkmark-circle-outline"></ion-icon>
-      </button>
-    </ion-buttons>
+    <ion-title>Games</ion-title>
   </ion-navbar>
+
 </ion-header>
 
-
 <ion-content padding>
-    <h3>Selectionnez vos jeux favoris : </h3> 
-    <ion-list>
-      <ion-item color="darkThemeBackground">
-        <ion-label>Counter Strike : GO</ion-label>
-        <ion-toggle ></ion-toggle>
-      </ion-item>
-      <ion-item color="darkThemeBackground">
-        <ion-label>League Of Legends</ion-label>
-        <ion-toggle ></ion-toggle>
-      </ion-item>
-      <ion-item color="darkThemeBackground">
-        <ion-label>Fortnite</ion-label>
-        <ion-toggle ></ion-toggle>
-      </ion-item>
-      <ion-item color="darkThemeBackground">
-        <ion-label>Rocket League</ion-label>
-        <ion-toggle ></ion-toggle>
-      </ion-item> 
-      <ion-item color="darkThemeBackground">
-        <ion-label>Dota2</ion-label>
-        <ion-toggle ></ion-toggle>
-      </ion-item>
-    
-    </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let game of games">
+        <!--Liste des jeux-->
+        <div class="gameBackground">
+          <img [src]="game.CheminImage">
+          <p text-center>{{game.Titre}}</p>
+        </div>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
 </ion-content>

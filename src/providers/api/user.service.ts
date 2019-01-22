@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { ApiResponseLogin } from '../../pages/login/shared/user';
@@ -20,18 +20,25 @@ export class UserService {
   makeLogin(pseudo, password){
 
     const body = {
+      'Password': password,
+      'Pseudo' : pseudo
+    }
+
+    /*
+    const body = {
       'Password': "123456789",
       'Pseudo' : "Soows"
     }
+    */
 
-    return this.http.post<ApiResponseLogin>('http://localhost:49296/api/UserAction/LoginApi', body) //{ headers: { 'Content-Type': 'application/json' }}
+    return this.http.post<ApiResponseLogin>('http://localhost:49296/api/MobileApp/ObtenirUtilisateur', body) //{ headers: { 'Content-Type': 'application/json' }}
       .pipe(
       map((res: ApiResponseLogin) => {
         console.log(res.Messages);
         if (res.Messages && res.Messages[0] && res.Messages[0].Code != "SUCCESS") {
-          throw Error("Invalid password");
+          throw Error("Invalid password or username");
         }
-
+        
         return res;
       }));
 

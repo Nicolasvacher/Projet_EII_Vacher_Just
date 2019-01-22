@@ -27,14 +27,16 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
     public userService: UserService) {
+
   }
 
   connect() {
     this.userService.makeLogin(this.user.pseudo, this.user.password)
       .subscribe(data => {
-      console.log('Connexion reussi');
-      console.log(data);
-      //this.navCtrl.push(TabsPage);
+        console.log('Connexion reussie');
+        console.log(data);
+        //this.navCtrl.push(TabsPage);
+        this.navCtrl.setRoot(TabsPage);
       }, (err: HttpErrorResponse) => {
         // Quand l'api répond mal
         console.error(err);
