@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController } from 'ionic-angular';
 
 import { TabsPage } from '../tabs/tabs';
 
@@ -26,11 +26,24 @@ export class LoginPage {
   };
 
   constructor(public navCtrl: NavController,
-    public userService: UserService) {
+    public userService: UserService,
+    public loading: LoadingController) {
 
   }
 
   connect() {
+
+    /*
+    * Création du loader
+    */
+    let loader = this.loading.create({
+      spinner: 'bubbles',
+      content: 'Veuillez patienter ...',
+    });
+
+    /* Afficher le loader */
+    loader.present();
+
     this.userService.makeLogin(this.user.pseudo, this.user.password)
       .subscribe(data => {
         console.log('login.ts - Connexion reussie');
@@ -40,7 +53,7 @@ export class LoginPage {
         * Ajout des infos retournées par l'api dans le stockage
         */
         localStorage.setItem('UserID', data.Sortie.Id);
-        
+
         this.navCtrl.setRoot(TabsPage);
 
         /*
@@ -53,6 +66,9 @@ export class LoginPage {
         // Quand l'api répond mal
         console.error(err);
       });
+
+    /* Supprimer le loader */
+    loader.dismiss();
   }
 
 }
