@@ -52,6 +52,13 @@ export class FavorisPage {
         console.error("favoris.ts", err.error.message);
       });
   }
+  showAll: boolean = true;
+  showFavorite: boolean = false;
+  
+  toggleCheck() {
+    this.showAll = !this.showAll;
+    this.showFavorite = !this.showFavorite;
+  }
 
   changeFavoris(game) {
 

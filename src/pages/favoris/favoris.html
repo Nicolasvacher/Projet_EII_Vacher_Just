@@ -9,32 +9,60 @@
 <ion-content padding>
 
   <ion-item color="darkThemeBackground">
-    <ion-toggle checked="true"></ion-toggle>
+    <ion-toggle (click)="toggleCheck()"></ion-toggle>
     <ion-label>
       Afficher les favoris
     </ion-label>
     <ion-icon name='favorite' item-start></ion-icon>
   </ion-item>
+  <div *ngIf="showAll">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 *ngFor="let game of games">
+          <!--Liste des jeux-->
+          <div class="gameBackground" (click)="changeFavoris(game); getGames()">
 
-  <ion-grid>
-    <ion-row>
-      <ion-col col-6 *ngFor="let game of games">
-        <!--Liste des jeux-->
-        <div class="gameBackground" (click)="changeFavoris(game)">
+            <!-- Afficher favoris -->
+            <div class="favoris">
+              <ion-icon class="bookmark" name="bookmark"></ion-icon>
+              <!-- Afficher si favoris -->
+              <ion-icon class="heart" name="heart" *ngIf="game.Favori"></ion-icon>
+              <!-- Afficher si pas favoris -->
+              <ion-icon class="heart" name="heart-outline" *ngIf="!game.Favori"></ion-icon>
+            </div>
 
-          <!-- Afficher favoris -->
-          <div class="favoris">
-            <ion-icon class="bookmark" name="bookmark"></ion-icon>
-            <!-- Afficher si favoris -->
-            <ion-icon class="heart" name="heart" *ngIf="game.Favori"></ion-icon>
-            <!-- Afficher si pas favoris -->
-            <ion-icon class="heart" name="heart-outline" *ngIf="!game.Favori"></ion-icon>
+            <img [src]="game.CheminImage">
+            <p text-center>{{game.Titre}}</p>
           </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="showFavorite">
+    <ion-grid>
+      <ion-row>
+        
+        <ion-col col-6 *ngFor="let game of games">
+          <ng-container *ngIf="game.Favori">
+            <!--Liste des jeux-->
+            <div class="gameBackground" (click)="changeFavoris(game)">
 
-          <img [src]="game.CheminImage">
-          <p text-center>{{game.Titre}}</p>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+              <!-- Afficher favoris -->
+              <div class="favoris">
+                <ion-icon class="bookmark" name="bookmark"></ion-icon>
+                <!-- Afficher si favoris -->
+                <ion-icon class="heart" name="heart" *ngIf="game.Favori"></ion-icon>
+                <!-- Afficher si pas favoris -->
+                <ion-icon class="heart" name="heart-outline" *ngIf="!game.Favori"></ion-icon>
+              </div>
+
+              <img [src]="game.CheminImage">
+              <p text-center>{{game.Titre}}</p>
+            </div>
+          </ng-container>
+        </ion-col>
+          
+</ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
