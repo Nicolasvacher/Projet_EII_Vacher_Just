@@ -33,10 +33,22 @@ export class LoginPage {
   connect() {
     this.userService.makeLogin(this.user.pseudo, this.user.password)
       .subscribe(data => {
-        console.log('Connexion reussie');
-        console.log(data);
-        //this.navCtrl.push(TabsPage);
+        console.log('login.ts - Connexion reussie');
+        console.log("login.ts - ", data);
+
+        /*
+        * Ajout des infos retournées par l'api dans le stockage
+        */
+        localStorage.setItem('UserID', data.Sortie.Id);
+        
         this.navCtrl.setRoot(TabsPage);
+
+        /*
+        * Récupérer l'id user stocké
+        */
+        var val = localStorage.getItem('UserID');
+        console.log('login.ts - Your id is', val);
+
       }, (err: HttpErrorResponse) => {
         // Quand l'api répond mal
         console.error(err);

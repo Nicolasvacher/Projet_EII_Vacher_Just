@@ -7,3 +7,28 @@
   margin-top: 1%;
   padding-bottom: 4%;
 }
+
+
+.favoris {
+  height: 15%;
+  width: 20%;
+  right: 20px;
+  background-color: #212429;
+  z-index: 1;
+}
+
+.bookmark {
+  position: absolute;
+  font-size: 54px;
+  color: #212429;
+  right: 12px;
+  top: 0px;
+}
+
+.heart{
+  position: absolute;
+  font-size: 25px;
+  color: hotpink;
+  top: 3%;
+  right: 15px;
+}

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { ApiResponseLogin } from '../../pages/login/shared/user';
+import { ToastController } from 'ionic-angular';
 
 @Injectable()
 export class UserService {
@@ -10,13 +11,15 @@ export class UserService {
    * Url de l'api des utilisateurs
    * @type {string}
    */
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,
+    private toastCtrl: ToastController) {
   }
 
   /**
    * Tous les utilisateurs
    * @returns {Observable<User[]>}
    */
+
   makeLogin(pseudo, password){
 
     const body = {
@@ -36,9 +39,22 @@ export class UserService {
       map((res: ApiResponseLogin) => {
         console.log(res.Messages);
         if (res.Messages && res.Messages[0] && res.Messages[0].Code != "SUCCESS") {
-          throw Error("Invalid password or username");
+
+          /*
+          * Afficher le toast d'erreur
+          */
+            let toast = this.toastCtrl.create({
+              message: 'Pseudo / Mot de passe incorrect.',
+              duration: 3000
+            });
+            toast.present();
+
+          /*
+          * On 'throw' une erreur pour ne pas accéder à la page d'accueil si non connecté
+          */
+            throw Error("Invalid username or password");
         }
-        
+
         return res;
       }));
 

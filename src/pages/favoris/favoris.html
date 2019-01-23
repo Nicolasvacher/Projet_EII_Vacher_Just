@@ -7,16 +7,34 @@
 </ion-header>
 
 <ion-content padding>
+
+  <ion-item color="darkThemeBackground">
+    <ion-toggle checked="true"></ion-toggle>
+    <ion-label>
+      Afficher les favoris
+    </ion-label>
+    <ion-icon name='favorite' item-start></ion-icon>
+  </ion-item>
+
   <ion-grid>
     <ion-row>
       <ion-col col-6 *ngFor="let game of games">
         <!--Liste des jeux-->
-        <div class="gameBackground">
+        <div class="gameBackground" (click)="changeFavoris(game)">
+
+          <!-- Afficher favoris -->
+          <div class="favoris">
+            <ion-icon class="bookmark" name="bookmark"></ion-icon>
+            <!-- Afficher si favoris -->
+            <ion-icon class="heart" name="heart" *ngIf="game.Favori"></ion-icon>
+            <!-- Afficher si pas favoris -->
+            <ion-icon class="heart" name="heart-outline" *ngIf="!game.Favori"></ion-icon>
+          </div>
+
           <img [src]="game.CheminImage">
           <p text-center>{{game.Titre}}</p>
         </div>
       </ion-col>
-
     </ion-row>
   </ion-grid>
 </ion-content>
