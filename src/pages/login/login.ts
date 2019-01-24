@@ -53,6 +53,10 @@ export class LoginPage {
         * Ajout des infos retournées par l'api dans le stockage
         */
         localStorage.setItem('UserID', data.Sortie.Id);
+        localStorage.setItem('Username', data.Sortie.UserName);
+        localStorage.setItem('Nom', data.Sortie.Nom);
+        localStorage.setItem('Prénom', data.Sortie.Prenom);
+        localStorage.setItem('Email', data.Sortie.Email);
 
         this.navCtrl.setRoot(TabsPage);
 
