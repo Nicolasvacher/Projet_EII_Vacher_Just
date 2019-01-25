@@ -17,9 +17,14 @@ export class OptionsChangeInfoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
+  Username: string;
+  Prenom: string;
+  Nom: string;
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OptionsChangeInfoPage');
+    this.Username = localStorage.getItem('Username');
+    this.Prenom = localStorage.getItem('Prénom');
+    this.Nom = localStorage.getItem('Nom');
+    console.log('Valeur de username : ' + this.Username);
   }
-
 }
