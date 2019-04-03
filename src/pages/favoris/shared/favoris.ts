@@ -1,3 +1,5 @@
+import { DateTime } from "ionic-angular";
+
 export interface Game {
   Id: number,
   Titre: string,
@@ -6,14 +8,14 @@ export interface Game {
   Favori: boolean
 }
 
-export interface ApiResponse {
+export interface ApiResponse { // interface for games, replace it with ApiResponseGame
   Complement: string;
   Sortie: {
     List: Game[]
   }
 }
 
-export interface ApiResponseUpdate {
+export interface ApiResponseUpdate { // interface for favorites
   Sortie: Infos,
   Complement: string,
   OK: false,
@@ -25,7 +27,7 @@ export interface Message {
   Message: string
 }
 
-export interface Infos {
+export interface Infos { // interface for user
   Id: string,
   UserName: string,
   Prenom: string,
@@ -33,4 +35,21 @@ export interface Infos {
   Money: number,
   Email: string,
   PasswordHash: string
+}
+
+
+export interface Tournament { // interface for tournament
+  Id: number,
+  Nom: string,
+  DateDebut: Date,
+  DateFin: Date,
+  Localisation: string,
+  GameId: number,
+  EventId: number
+}
+
+export interface ApiResponseTournament { // interface for tournament
+  Complement: string;
+  Sortie: Tournament[]
+
 }

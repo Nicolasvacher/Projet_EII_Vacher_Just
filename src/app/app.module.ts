@@ -21,6 +21,7 @@ import { GameListPage } from '../pages/game-list/game-list';
 import { GameService } from '../providers/api/game.service';
 import { UserService } from '../providers/api/user.service';
 import { OptionsChangeInfoPage } from '../pages/options-change-info/options-change-info'
+import { TournamentService } from '../providers/api/tournament.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { OptionsChangeInfoPage } from '../pages/options-change-info/options-chan
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserService,
-    GameService
+    GameService,
+    TournamentService
   ]
 })
 export class AppModule {

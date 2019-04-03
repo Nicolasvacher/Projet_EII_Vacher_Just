@@ -1,9 +1,42 @@
-.gameBackground {
+.tournamentBackground {
   background-color: #212429;
   border-radius: 2%;
 }
 
-.gameBackground > p{
+.tournamentBackground > p{
   margin-top: 1%;
   padding-bottom: 4%;
 }
+
+.tournamentTitle{
+  font-size:20px;
+  margin-left:4px;
+}
+
+.tournamentTime {
+  padding-top: 10px;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.calendar {
+  color: gold;
+  margin-right: 10px;
+  margin-left: 4px;
+}
+
+.tournamentLoc {
+  padding-top: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+.loc {
+  margin-right: 10px;
+  color: dodgerblue;
+  margin-left: 4px;
+  padding-bottom:10px;
+}
+
+
