@@ -20,6 +20,10 @@ export class UserService {
    * @returns {Observable<User[]>}
    */
 
+  changeUser(username,nom,prenom) {
+
+  }
+
   makeLogin(pseudo, password){
 
     const body = {
