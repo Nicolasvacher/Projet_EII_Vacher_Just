@@ -43,13 +43,38 @@ export interface Tournament { // interface for tournament
   Nom: string,
   DateDebut: Date,
   DateFin: Date,
-  Localisation: string,
-  GameId: number,
+  GameId: string,
   EventId: number
 }
 
 export interface ApiResponseTournament { // interface for tournament
-  Complement: string;
+  Complement: string,
   Sortie: Tournament[]
+
+}
+
+export interface Match {
+  MatchId: number,
+  MatchType: string,
+  Equipe1Id: number,
+  Equipe1Nomy: string,
+  Equipe2Id: number,
+  Equipe2Nom: string
+}
+
+export interface ApiResponseMatches { // interface for matches
+  Sortie: Match[];
+  Complement: string,
+  OK: true,
+  Messages: Message[]
+
+}
+
+
+export interface ApiResponseGameById { // interface for getting game by id
+  Sortie: Game[];
+  Complement: string,
+  OK: true,
+  Messages: Message[]
 
 }

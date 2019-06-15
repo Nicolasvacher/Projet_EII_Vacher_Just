@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiResponseTournament } from '../../pages/favoris/shared/favoris';
+import { ApiResponseTournament, ApiResponse, ApiResponseMatches, ApiResponseGameById } from '../../pages/favoris/shared/favoris';
 import { map } from 'rxjs/operators';
 
 /*
@@ -16,9 +16,7 @@ export class TournamentService {
   constructor(public http: HttpClient) {
     console.log('Hello TournamentService Provider');
   }
-
-
-
+  
   getTournament(userId){
 
     const body = {
@@ -34,4 +32,42 @@ export class TournamentService {
           return r.Sortie;
         }));
   }
+
+
+  getMatch(tournamentId) {
+
+    const body = {
+      "Entree": {
+        'TournamentId': tournamentId
+      }
+    }
+
+    return this.http.post<ApiResponseMatches>('http://localhost:49296/api/Tournament/ListeMatch', body)
+      .pipe(
+      map((r: ApiResponseMatches) => {
+        //return r.Sortie.List;
+        return r.Sortie;
+      }));
+  }
+
+  
+  getGameById(gameId) {
+
+    const body = {
+      "Entree": {
+        'Id': gameId,
+        'Admin': true
+      }
+    }
+
+    return this.http.post<ApiResponseGameById>('http://localhost:49296/api/Game/Obtenir', body)
+      .pipe(
+      map((r: ApiResponseGameById) => {
+        //return r.Sortie.List;
+        console.log('getgamebyid',r.Sortie);
+        return r.Sortie;
+        
+      }));
+  }
+
 }

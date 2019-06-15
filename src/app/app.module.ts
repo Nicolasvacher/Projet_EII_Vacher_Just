@@ -22,6 +22,7 @@ import { GameService } from '../providers/api/game.service';
 import { UserService } from '../providers/api/user.service';
 import { OptionsChangeInfoPage } from '../pages/options-change-info/options-change-info'
 import { TournamentService } from '../providers/api/tournament.service';
+import { TournamentInfoPage } from '../pages/tournament-info/tournament-info';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TournamentService } from '../providers/api/tournament.service';
     SignupPage,
     LoginPage,
     WelcomePage,
-    OptionsChangeInfoPage
+    OptionsChangeInfoPage,
+    TournamentInfoPage
   ], 
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { TournamentService } from '../providers/api/tournament.service';
     SignupPage,
     LoginPage,
     WelcomePage,
-    OptionsChangeInfoPage
+    OptionsChangeInfoPage,
+    TournamentInfoPage
   ],
   providers: [
     StatusBar,
