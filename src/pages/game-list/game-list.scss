@@ -1,6 +1,10 @@
 .tournamentBackground {
   background-color: #212429;
   border-radius: 2%;
+  width: 150px;
+  //display:inline;
+  text-align:center;
+  color:gold;
 }
 
 .tournamentBackground > p{
@@ -39,4 +43,14 @@
   padding-bottom:10px;
 }
 
+#imgJeu{
+  //padding-left:2%;
+  width: 140px;
+}
 
+#texteTournois {
+  font-size: 30px;
+  background-color: #212429;
+  border-radius:10px;
+  text-align:center;
+}
