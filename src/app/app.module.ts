@@ -5,8 +5,6 @@ import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 
-import { Facebook } from '@ionic-native/facebook';
-
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -68,8 +66,7 @@ import { TournamentInfoPage } from '../pages/tournament-info/tournament-info';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserService,
     GameService,
-    TournamentService,
-    Facebook,
+    TournamentService
   ]
 })
 export class AppModule {
