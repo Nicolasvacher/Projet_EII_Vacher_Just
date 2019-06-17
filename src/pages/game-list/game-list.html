@@ -10,17 +10,25 @@
   <ion-grid>
     <ion-row>
       <div id="texteTournois">Choisissez un tournoi pour voir ses informations</div>
+      <div id="noTourn" *ngIf="!tournaments || tournaments.length === 0">
+        <H3 id="noTournament">Pas de tournoi à afficher, ajoutez des jeux en favoris pour voir les tournois correspondant</H3>
+      </div>
+      
+      
       <ion-col col-6 *ngFor="let tournament of tournaments">
-        <!--Liste des jeux-->
-        <div class="tournamentBackground" (click)="tournamentInfo($event, tournament)">
+        <div *ngIf="tournaments || tournaments.length > 0">
+          <!--Liste des jeux-->
+          <div class="tournamentBackground" (click)="tournamentInfo($event, tournament)">
 
-          <div class="tournamentTitle">{{tournament.Nom}}</div>
+            <div class="tournamentTitle">{{tournament.Nom}}</div>
 
-          <img id="imgJeu" [src]="games.CheminImage">
-          <!--<div class="tournamentTime"> <ion-icon class="calendar" name="md-time"></ion-icon>{{tournament.DateDebut}} - {{tournament.DateFin}}</div>-->
+            <img id="imgJeu" [src]="games.CheminImage">
+            <!--<div class="tournamentTime"> <ion-icon class="calendar" name="md-time"></ion-icon>{{tournament.DateDebut}} - {{tournament.DateFin}}</div>-->
 
+          </div>
         </div>
       </ion-col>
+      
     </ion-row>
   </ion-grid>
 </ion-content>

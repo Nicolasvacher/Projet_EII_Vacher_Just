@@ -2,9 +2,10 @@
   background-color: #212429;
   border-radius: 2%;
   width: 150px;
-  //display:inline;
+  
   text-align:center;
   color:gold;
+  
 }
 
 .tournamentBackground > p{
@@ -54,3 +55,15 @@
   border-radius:10px;
   text-align:center;
 }
+
+#noTournament{
+  padding-top:10%;
+  text-align:center;
+}
+
+/*
+#noTourn {
+  border-radius: 30px;
+  background-image: url("https://images.unsplash.com/photo-1499551660540-eaf0697882f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80");
+  background-size: 300px;
+}*/
